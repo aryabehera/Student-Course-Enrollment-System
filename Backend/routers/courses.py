@@ -26,7 +26,7 @@ def create_course(course: CourseCreate, db: Session = Depends(get_db)):
     if db_course:
         raise HTTPException(status_code=400, detail="Course already exists")
     
-    new_course = Course(**course.dict())
+    new_course = Course(**course.model_dump())
     db.add(new_course)
     db.commit()
     db.refresh(new_course)
