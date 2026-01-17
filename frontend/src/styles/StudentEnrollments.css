@@ -1,0 +1,71 @@
+.student-enrollments-container {
+  padding: 20px;
+}
+
+.info-message, .loading, .error {
+  text-align: center;
+  padding: 20px;
+}
+
+.error {
+  color: #d32f2f;
+}
+
+.enrollment-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.enrollment-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.enrollment-card h3 {
+  color: #4caf50;
+  margin-bottom: 15px;
+}
+
+.enrollment-card p {
+  margin: 8px 0;
+}
+
+.status {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+.status.enrolled {
+  background: #4caf50;
+  color: white;
+}
+
+.status.dropped {
+  background: #f44336;
+  color: white;
+}
+
+.actions {
+  margin-top: 15px;
+}
+
+.drop-btn, .enroll-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+}
+
+.drop-btn {
+  background: #f44336;
+}
+
+.enroll-btn {
+  background: #4caf50;
+}
