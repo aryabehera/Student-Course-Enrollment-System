@@ -29,11 +29,12 @@ class Course(CourseBase):
 class EnrollmentBase(BaseModel):
     student_id: int
     student_name: str
-    course_id: str
+    course: str
 
 
-class EnrollmentCreate(EnrollmentBase):
-    pass
+class EnrollmentCreate(BaseModel):
+    student_id: int
+    student_name: str
 
 
 class EnrollmentUpdate(BaseModel):
@@ -56,7 +57,7 @@ class CourseWithEnrollments(Course):
 
 
 class EnrollmentWithCourse(Enrollment):
-    course: Course
+    course_rel: Course
     
     class Config:
         from_attributes = True

@@ -78,7 +78,7 @@ def delete_course(course_name: str, db: Session = Depends(get_db)):
     if not course:
         raise HTTPException(status_code=404, detail="Course not found")
     
-    db.query(Enrollment).filter(Enrollment.course_id == course_name).delete()
+    db.query(Enrollment).filter(Enrollment.course == course_name).delete()
     db.delete(course)
     db.commit()
     return None
@@ -92,18 +92,22 @@ def enroll_student(course_name: str, enrollment: EnrollmentCreate, db: Session =
     if not course:
         raise HTTPException(status_code=404, detail="Course not found")
     
-    if enrollment.course_id != course_name:
-        raise HTTPException(status_code=400, detail="Course ID mismatch")
-    
+    # Check if student already enrolled
     existing = db.query(Enrollment).filter(
         Enrollment.student_id == enrollment.student_id,
-        Enrollment.course_id == course_name
+        Enrollment.course == course_name
     ).first()
     
     if existing:
         raise HTTPException(status_code=400, detail="Student already enrolled")
     
-    new_enrollment = Enrollment(**enrollment.dict(), status="Enrolled")
+    # Use course_name from URL instead of the one in request body
+    new_enrollment = Enrollment(
+        student_id=enrollment.student_id,
+        student_name=enrollment.student_name,
+        course=course_name,
+        status="Enrolled"
+    )
     db.add(new_enrollment)
     db.commit()
     db.refresh(new_enrollment)

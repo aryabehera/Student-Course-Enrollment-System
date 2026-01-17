@@ -24,17 +24,17 @@ def get_student_enrollments(student_id: int, db: Session = Depends(get_db)):
 
 
 # Update enrollment status (drop/re-enroll)
-@router.patch("/student/{student_id}/course/{course_id}", response_model=EnrollmentSchema)
+@router.patch("/student/{student_id}/course/{course_name}", response_model=EnrollmentSchema)
 def update_enrollment_status(
     student_id: int, 
-    course_id: str, 
+    course_name: str, 
     enrollment_update: EnrollmentUpdate, 
     db: Session = Depends(get_db)
 ):
     """Update enrollment status (Enrolled/Dropped)"""
     enrollment = db.query(Enrollment).filter(
         Enrollment.student_id == student_id,
-        Enrollment.course_id == course_id
+        Enrollment.course == course_name
     ).first()
     
     if not enrollment:
