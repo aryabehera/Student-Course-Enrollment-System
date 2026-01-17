@@ -38,7 +38,7 @@ class EnrollmentCreate(BaseModel):
 
 
 class EnrollmentUpdate(BaseModel):
-    status: str  # "Enrolled" or "Dropped"
+    status: str  
 
 
 class Enrollment(EnrollmentBase):
