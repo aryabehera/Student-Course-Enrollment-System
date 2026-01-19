@@ -69,6 +69,7 @@ const CourseManagement = () => {
           <div className="details-content">
             <p><strong>Instructor:</strong> {courseDetails.instructor_name}</p>
             <p><strong>Instructor ID:</strong> {courseDetails.instructor_id}</p>
+            <p><strong>Instructor Email:</strong> {courseDetails.instructor_email}</p>
             <p><strong>Duration:</strong> {courseDetails.duration} hours</p>
           </div>
 

@@ -5,8 +5,8 @@ import '../styles/CreateCourse.css';
 const CreateCourse = ({ onCourseCreated }) => {
   const [formData, setFormData] = useState({
     course_name: '',
-    instructor_id: '',
     instructor_name: '',
+    instructor_email: '',
     duration: ''
   });
   const [loading, setLoading] = useState(false);
@@ -29,14 +29,13 @@ const CreateCourse = ({ onCourseCreated }) => {
     try {
       await courseAPI.createCourse({
         ...formData,
-        instructor_id: parseInt(formData.instructor_id),
         duration: parseInt(formData.duration)
       });
       setSuccess(true);
       setFormData({
         course_name: '',
-        instructor_id: '',
         instructor_name: '',
+        instructor_email: '',
         duration: ''
       });
       if (onCourseCreated) onCourseCreated();
@@ -66,22 +65,22 @@ const CreateCourse = ({ onCourseCreated }) => {
         </div>
 
         <div className="form-group">
-          <label>Instructor ID:</label>
+          <label>Instructor Name:</label>
           <input
-            type="number"
-            name="instructor_id"
-            value={formData.instructor_id}
+            type="text"
+            name="instructor_name"
+            value={formData.instructor_name}
             onChange={handleChange}
             required
           />
         </div>
 
         <div className="form-group">
-          <label>Instructor Name:</label>
+          <label>Instructor Email:</label>
           <input
-            type="text"
-            name="instructor_name"
-            value={formData.instructor_name}
+            type="email"
+            name="instructor_email"
+            value={formData.instructor_email}
             onChange={handleChange}
             required
           />

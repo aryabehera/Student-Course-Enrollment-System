@@ -38,8 +38,8 @@ const CourseList = () => {
           {courses.map((course) => (
             <div key={course.course_name} className="course-card">
               <h3>{course.course_name}</h3>
-              <p><strong>Instructor:</strong> {course.instructor_name}</p>
-              <p><strong>Instructor ID:</strong> {course.instructor_id}</p>
+              <p><strong>Instructor Name:</strong> {course.instructor_name}</p>
+              <p><strong>Instructor Email:</strong> {course.instructor_email}</p>
               <p><strong>Duration:</strong> {course.duration} hours</p>
             </div>
           ))}
