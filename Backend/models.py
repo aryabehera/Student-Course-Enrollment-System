@@ -6,8 +6,8 @@ class Course(Base):
     __tablename__ = "courses"
 
     course_name = Column(String, primary_key=True, index=True)
-    instructor_id = Column(Integer, index=True)
     instructor_name = Column(String, index=True)
+    instructor_email = Column(String, index=True)
     duration = Column(Integer)
 
     enrollments = relationship("Enrollment", back_populates="course_rel", foreign_keys="Enrollment.course")

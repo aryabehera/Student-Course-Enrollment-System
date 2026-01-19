@@ -58,10 +58,10 @@ def update_course(course_name: str, course_update: CourseUpdate, db: Session = D
     if not course:
         raise HTTPException(status_code=404, detail="Course not found")
     
-    if course_update.instructor_id is not None:
-        course.instructor_id = course_update.instructor_id
     if course_update.instructor_name is not None:
         course.instructor_name = course_update.instructor_name
+    if course_update.instructor_email is not None:
+        course.instructor_email = course_update.instructor_email
     if course_update.duration is not None:
         course.duration = course_update.duration
     

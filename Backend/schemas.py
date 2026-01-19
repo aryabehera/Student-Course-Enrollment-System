@@ -5,8 +5,8 @@ from typing import List, Optional
 # Course Schemas
 class CourseBase(BaseModel):
     course_name: str
-    instructor_id: int
     instructor_name: str
+    instructor_email: str
     duration: int
 
 
@@ -15,8 +15,8 @@ class CourseCreate(CourseBase):
 
 
 class CourseUpdate(BaseModel):
-    instructor_id: Optional[int] = None
     instructor_name: Optional[str] = None
+    instructor_email: Optional[str] = None
     duration: Optional[int] = None
 
 
