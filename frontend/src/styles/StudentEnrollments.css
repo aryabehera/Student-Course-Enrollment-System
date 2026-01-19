@@ -11,6 +11,58 @@
   color: #d32f2f;
 }
 
+.filters-section {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 200px;
+}
+
+.filter-group label {
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+}
+
+.filter-select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  background: white;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+.filter-info {
+  margin-left: auto;
+  padding: 10px;
+  color: #666;
+  font-weight: 500;
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+  font-size: 18px;
+}
+
 .enrollment-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
